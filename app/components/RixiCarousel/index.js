@@ -19,13 +19,18 @@ import Wrapper from './Wrapper';
 
 // import messages from './messages';
 
+//  NOTE: Needs it's own state for resuability
 // state = {
 //   page: 1,
 //   amt: 4,
 // };
 
+// incrementPage
+// decrementPage
+// goToPage
+
 const RixiCarousel = (props) => {
-  console.log('(components/RixiCarousel/)    props.data: ', props.data);
+  console.log('(components/RixiCarousel/)    props.data: ', props.data);   // eslint-disable-line no-console
 
   let CardTops;
   let CardBottoms;
@@ -34,6 +39,7 @@ const RixiCarousel = (props) => {
 
   //  CASE if data prop isn't empty
   const hasData = props.data.length > 0;
+
   if (hasData) {
     const cards = props.data.reduce((acc, curr) => {
       const isFilm = curr.type === 'film';
@@ -41,7 +47,7 @@ const RixiCarousel = (props) => {
       const currTop = (
         <CardTop key={curr.uuid}>
           <MaterialIcon class="rate-icon" type="favorite" />
-          { isFilm && <a href={curr.itemData.platforms[0].url} target="_blank"><MaterialIcon class="play-icon" type="play_circle_outline" /></a> }
+          { isFilm && <a href={curr.itemData.platforms[0] ? curr.itemData.platforms[0].url : `https://www.google.com/search?q=${curr.name}+film`} target="_blank"><MaterialIcon class="play-icon" type="play_circle_outline" /></a> }
           <CardImg src={curr.itemData.image} />
           <CardImgShadow />
         </CardTop>

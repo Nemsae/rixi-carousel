@@ -27,6 +27,7 @@ app.post('/items/:id', (req, res) => {
   return res.status(500).send('could not write result');
 });
 
+//  NOTE: Added filter for liked items
 app.get('/items', (req, res) => {
   const amt = parseInt(req.query.amt, 10) || 20;
   const page = parseInt(req.query.page, 10) || 1;

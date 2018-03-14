@@ -59,7 +59,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
 }
 
 HomePage.propTypes = {
-  recommendations: PropTypes.any,
+  recommendations: PropTypes.array,
   // recommendations: PropTypes.array,
   // loading: PropTypes.bool,
   // success: PropTypes.bool,

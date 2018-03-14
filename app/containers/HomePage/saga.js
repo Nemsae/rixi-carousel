@@ -5,7 +5,7 @@
  *
  */
 
-import { call, take, put, select, takeLatest } from 'redux-saga/effects';
+import { call, take, put, select, takeLatest } from 'redux-saga/effects';   // eslint-disable-line no-unused-vars
 import { GET_RECOMMENDATIONS } from 'containers/HomePage/constants';
 import { recommendationsFetched, recommendationsFetchingError } from 'containers/HomePage/actions';
 

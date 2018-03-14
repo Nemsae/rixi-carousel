@@ -3,6 +3,13 @@ import styled from 'styled-components';
 const CardTop = styled.div.attrs({ className: 'carousel__card-top' })`
   position: relative;
 
+  a {
+    color: #fff;
+    :hover {
+      color: #fff;
+    }
+  }
+
   i {
     cursor: pointer;
     z-index: 1;
@@ -41,7 +48,6 @@ const CardTop = styled.div.attrs({ className: 'carousel__card-top' })`
     transform: scale(1.1);
 
     .card-image__shadow {
-      ${'' /* box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.8); */}
       box-shadow: none;
     }
   }
