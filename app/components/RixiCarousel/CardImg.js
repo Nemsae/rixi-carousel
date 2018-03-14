@@ -5,7 +5,6 @@ const CardImg = styled.img`
 
   height: 283px;
   width: 224px;
-  margin-bottom: 24px;
 `;
 
 export default CardImg;
