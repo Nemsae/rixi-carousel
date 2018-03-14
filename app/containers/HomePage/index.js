@@ -11,14 +11,29 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+
+import H1 from 'components/H1';
+import RixiCarousel from 'components/RixiCarousel';
+
+import SectionH1 from './SectionH1';
+import Wrapper from './Wrapper';
+
 import messages from './messages';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <Wrapper>
+        <H1>
+          <FormattedMessage {...messages.header} />
+        </H1>
+
+        <article>
+          <SectionH1><FormattedMessage {...messages.recommendHeader} /></SectionH1>
+          <RixiCarousel />
+        </article>
+
+      </Wrapper>
     );
   }
 }
