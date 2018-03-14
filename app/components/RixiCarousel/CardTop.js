@@ -5,6 +5,9 @@ const CardTop = styled.div.attrs({ className: 'carousel__card-top' })`
 
   i {
     cursor: pointer;
+    z-index: 1;
+    text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.8);
+    transition: all 180ms;
   }
 
   i.rate-icon {
@@ -15,6 +18,7 @@ const CardTop = styled.div.attrs({ className: 'carousel__card-top' })`
 
     &:hover {
       color: red;
+      transform: scale(1.5);
     }
   }
 
@@ -35,6 +39,11 @@ const CardTop = styled.div.attrs({ className: 'carousel__card-top' })`
   &:hover {
     transition: all 180ms ease-in;
     transform: scale(1.1);
+
+    .card-image__shadow {
+      ${'' /* box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.8); */}
+      box-shadow: none;
+    }
   }
 `;
 

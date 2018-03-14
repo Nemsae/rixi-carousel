@@ -10,7 +10,6 @@ injectGlobal`
 
   body {
     font-family: 'Roboto', sans-serif;
-    ${'' /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */}
   }
 
   ${'' /* body.fontLoaded {
@@ -26,7 +25,6 @@ injectGlobal`
   p,
   label {
     font-family: 'Roboto', sans-serif;
-    ${'' /* font-family: Georgia, Times, 'Times New Roman', serif; */}
     line-height: 1.5em;
   }
 `;

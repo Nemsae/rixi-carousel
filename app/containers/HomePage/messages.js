@@ -14,4 +14,8 @@ export default defineMessages({
     id: 'app.components.HomePage.recommend.header',
     defaultMessage: 'Top recommendations for you',
   },
+  featuredHeader: {
+    id: 'app.components.HomePage.featured.header',
+    defaultMessage: 'Top featured items',
+  },
 });

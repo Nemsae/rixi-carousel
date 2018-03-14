@@ -7,7 +7,7 @@ const CarouselCircles = styled.div`
   display: flex;
   justify-content: space-between;
 
-  width: 93px;
+  width: 94px;
   margin-bottom: 40px;
 `;
 
