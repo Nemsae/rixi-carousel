@@ -87,13 +87,13 @@ class RixiCarousel extends React.PureComponent {
         //  TODO: abstract out JSX, feed in component as a prop for reusability
         const currTop = (
           <CardTop key={curr.uuid}>
-            <MaterialIcon class="rate-icon" type="favorite" onClick={() => this.props.onItemChange(curr.uuid)} />
+            <MaterialIcon class="rate-icon" type="favorite" onClick={() => this.props.onItemChange(curr.uuid, this.state.page, this.state.amt)} />
             { isFilm &&
               <a target="_blank" href={curr.itemData.platforms[0] ? curr.itemData.platforms[0].url : `https://www.google.com/search?q=${curr.name}+film`}>
                 <MaterialIcon class="play-icon" type="play_circle_outline" />
               </a>
             }
-            <CardImg src={curr.itemData.image} />
+            <CardImg src={(curr.itemData.image && curr.itemData.image.length > 0) ? curr.itemData.image : ''} />
             <CardImgShadow />
           </CardTop>
         );

@@ -7,7 +7,7 @@
 
 import { call, take, put, select, takeLatest } from 'redux-saga/effects';   // eslint-disable-line no-unused-vars
 import { GET_RECOMMENDATIONS, RATE_RECOMMENDATION } from 'containers/HomePage/constants';
-import { recommendationRated, recommendationRatingError, recommendationsFetched, recommendationsFetchingError } from 'containers/HomePage/actions';
+import { fetchRecommendations, recommendationRatingError, recommendationsFetched, recommendationsFetchingError } from 'containers/HomePage/actions';
 
 import request from 'utils/request';
 // import { makeSelectInputs } from 'containers/HomePage/selectors';
@@ -19,23 +19,19 @@ export function* rateRecommendation(action) {
   const requestURL = `/items/${action.id}`;
 
   try {
-    const response = yield call(request, requestURL, {
+    yield call(request, requestURL, {
       method: 'POST',
-      // body: 'like',
-
-      // mode: 'cors',
-      // redirect: 'follow',
       body: JSON.stringify({ rating: 'like' }),
       headers: new Headers({
         'Content-Type': 'application/json',
         Accept: 'application/json',
       }),
     });
-    console.log('(container/HomePage/saga.js)     rateRecommendation:response ', response);     //  eslint-disable-line no-console
-    //  Call with existing state values for page and amt
+    // console.log('(container/HomePage/saga.js)     rateRecommendation:response ', response);     //  eslint-disable-line no-console
 
-    // loadRecommendations
-    yield put(recommendationRated());
+    yield put(fetchRecommendations(action.page, action.amt));
+    //  Call with existing state values for page and amt
+    // yield put(loadRecommendations(action));
   } catch (err) {
     yield put(recommendationRatingError(err));
   }

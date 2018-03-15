@@ -1,6 +1,4 @@
-const fs = require('fs')
 const path = require('path');
-// const fetch = require('node-fetch');
 let db = require('diskdb');
 
 const DATA_PATH = path.resolve(__dirname, '..', 'data');
@@ -19,7 +17,6 @@ function read(amt, page) {
 function write(id, rating) {
   const query = { uuid: id };
   const update = { rating };
-  console.log('write    update: ', update);
   db.items.update(query, update);
   const item = db.items.findOne({ uuid: parseInt(id, 10) });
   return item;

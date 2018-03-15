@@ -22,7 +22,7 @@ import messages from './messages';
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
-    console.log('(containers/HomePage)    this.props.recommendations: ', this.props.recommendations);
+    // console.log('(containers/HomePage)    this.props.recommendations: ', this.props.recommendations);
     return (
       <Wrapper>
         <H1>
@@ -68,7 +68,7 @@ HomePage.propTypes = {
 export function mapDispatchToProps(dispatch) {
   return {
     fetchRecommendationsPage: (page, amt) => dispatch(fetchRecommendations(page, amt)),
-    changeRateRecommendation: (id) => dispatch(rateRecommendation(id)),
+    changeRateRecommendation: (id, page, amt) => dispatch(rateRecommendation(id, page, amt)),
   };
 }
 

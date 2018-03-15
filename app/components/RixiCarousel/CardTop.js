@@ -37,7 +37,7 @@ const CardTop = styled.div.attrs({ className: 'carousel__card-top' })`
     transform: translate(-50%, -50%);
 
     &:hover {
-      color: green;
+      color: red;
     }
   }
 

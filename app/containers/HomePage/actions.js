@@ -15,10 +15,12 @@ import {
  *
  * @return {object}    An action object with a type of RATE_RECOMMENDATION
  */
-export function rateRecommendation(id) {
+export function rateRecommendation(id, page, amt) {
   return {
     type: RATE_RECOMMENDATION,
     id,
+    page,
+    amt,
   };
 }
 
