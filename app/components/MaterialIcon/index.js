@@ -4,8 +4,9 @@ import styled from 'styled-components';
 
 const MaterialIcon = (props) => {
   const MaterialIconPrimitive = styled.i.attrs({ className: `material-icons ${props.class}` })`
-    ${'' /* font-size: 18px;
-    font-weight: 400; */}
+    ${props.color && `
+      color: ${props.color}
+    `}
   `;
 
   if (props.onClick) return <MaterialIconPrimitive onClick={props.onClick}>{ props.type }</MaterialIconPrimitive>;
@@ -15,6 +16,7 @@ const MaterialIcon = (props) => {
 MaterialIcon.propTypes = {
   class: PropTypes.string,
   type: PropTypes.string,
+  color: PropTypes.string,
   onClick: PropTypes.func,
 };
 

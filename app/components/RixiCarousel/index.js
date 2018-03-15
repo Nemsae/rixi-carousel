@@ -28,7 +28,6 @@ class RixiCarousel extends React.PureComponent {
   }
 
   componentWillMount() {
-    //  NOTE: First fetch
     this.changePage(this.state.page, this.state.amt);
   }
 

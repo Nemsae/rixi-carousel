@@ -8,8 +8,10 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 
-import H1 from 'components/H1';
+// import H1 from 'components/H1';
 import RixiCarousel from 'components/RixiCarousel';
+
+// import Header from './Header';
 import HomeSection from './HomeSection';
 import SectionH1 from './SectionH1';
 import Wrapper from './Wrapper';
@@ -25,9 +27,11 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     // console.log('(containers/HomePage)    this.props.recommendations: ', this.props.recommendations);
     return (
       <Wrapper>
-        <H1>
-          <FormattedMessage {...messages.header} />
-        </H1>
+        {/* <Header>
+          <H1>
+            <FormattedMessage {...messages.header} />
+          </H1>
+        </Header> */}
 
         <HomeSection>
           <SectionH1><FormattedMessage {...messages.recommendHeader} /></SectionH1>
@@ -41,10 +45,10 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
           />
         </HomeSection>
 
-        <HomeSection>
+        {/* <HomeSection>
           <SectionH1><FormattedMessage {...messages.featuredHeader} /></SectionH1>
-          {/* <RixiCarousel data={this.props.recommendations} /> */}
-        </HomeSection>
+          <RixiCarousel data={this.props.recommendations} />
+        </HomeSection> */}
 
       </Wrapper>
     );
@@ -53,14 +57,12 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
 
 HomePage.propTypes = {
   recommendations: PropTypes.array,
-  // recommendations: PropTypes.array,
   // loading: PropTypes.bool,
   // success: PropTypes.bool,
   // error: PropTypes.oneOfType([
   //   PropTypes.object,
   //   PropTypes.bool,
   // ]),
-
   fetchRecommendationsPage: PropTypes.func,
   changeRateRecommendation: PropTypes.func,
 };

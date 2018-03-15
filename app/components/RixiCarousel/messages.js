@@ -1,13 +1,13 @@
 /*
- * HomePage Messages
+ * RixiCarousel Messages
  *
- * This contains all the text for the HomePage component.
+ * This contains all the text for the RixiCarousel component.
  */
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   header: {
-    id: 'app.components.HomePage.header',
+    id: 'app.components.RixiCarousel.header',
     defaultMessage: 'Top recommendations for you',
   },
 });

@@ -12,14 +12,24 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import MaterialIcon from 'components/MaterialIcon';
+
+import H1 from './H1';
+import Header from './Header';
+import Wrapper from './Wrapper';
 import messages from './messages';
 
 export default class NotFound extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <Wrapper>
+        <Header>
+          <MaterialIcon type="info_outline" />
+          <H1>
+            <FormattedMessage {...messages.header} />
+          </H1>
+        </Header>
+      </Wrapper>
     );
   }
 }

@@ -1,5 +1,7 @@
 import { injectGlobal } from 'styled-components';
 
+// Ripe Lemon - #F7CA18
+
 /* eslint no-unused-expressions: 0 */
 injectGlobal`
   html,
