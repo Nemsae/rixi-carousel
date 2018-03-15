@@ -8,12 +8,14 @@ const MaterialIcon = (props) => {
     font-weight: 400; */}
   `;
 
+  if (props.onClick) return <MaterialIconPrimitive onClick={props.onClick}>{ props.type }</MaterialIconPrimitive>;
   return <MaterialIconPrimitive>{ props.type }</MaterialIconPrimitive>;
 };
 
 MaterialIcon.propTypes = {
   class: PropTypes.string,
   type: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default MaterialIcon;

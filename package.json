@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "npm run build:dll && npm run reset:db",
     "build:dll": "node ./internals/scripts/dependencies.js",
     "lint": "npm run lint:js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts",
+    "lint:js": "npm run lint:eslint -- . ",
     "lint:staged": "lint-staged",
+    "reset:db": "node server/utils/resetDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server"
   },
   "repository": {

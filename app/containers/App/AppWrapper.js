@@ -5,7 +5,7 @@ const AppWrapper = styled.div`
   grid-template-areas: 'header'
   'content'
   'footer';
-  grid-template-rows: 100px auto 100px;
+  grid-template-rows: 100px auto 50px;
 
   height: 100vh;
 `;

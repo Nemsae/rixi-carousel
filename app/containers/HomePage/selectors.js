@@ -10,7 +10,6 @@ const makeSelectRecommendations = () => createSelector(
   selectHome,
   (homeState) => {
     const recommendationsPrimitive = homeState.get('recommendations');
-    // console.log('instanceof: ', recommendationsPrimitive instanceof Array);
     if (recommendationsPrimitive instanceof Array) return recommendationsPrimitive;
     return recommendationsPrimitive.toJS();
   }

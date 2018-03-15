@@ -1,6 +1,9 @@
 import { fromJS } from 'immutable';
 
 import {
+  // RATE_RECOMMENDATION,
+  // RATE_RECOMMENDATION_SUCCESS,
+  // RATE_RECOMMENDATION_ERROR,
   GET_RECOMMENDATIONS,
   GET_RECOMMENDATIONS_SUCCESS,
   GET_RECOMMENDATIONS_ERROR,
@@ -11,31 +14,10 @@ const initialState = fromJS({
   loading: false,
   success: false,
   error: false,
-
-  // inputs: {
-  //   time: '',
-  //   date: '',
-  //   latitude: '',
-  //   longitude: '',
-  // },
-  // loading: false,
-  // success: false,
-  // error: false,
-  // data: null,
-  // message: messages.errorMessage,
 });
 
 function homeReducer(state = initialState, action) {
   switch (action.type) {
-    // case CHANGE_INPUT:
-    //   return state
-    //     .setIn(['inputs', action.id], action.value);
-    // case CHANGE_MESSAGE:
-    //   return state
-    //     .set('message', action.message);
-    // case CHANGE_LOADING:
-    //   return state
-    //     .set('loading', !state.loading);
     case GET_RECOMMENDATIONS:
       return state
         .set('loading', true)

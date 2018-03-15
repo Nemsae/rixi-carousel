@@ -20,6 +20,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/items/:id', (req, res) => {
+  //  'like' or null
+  console.log('/items/:id    req.body: ', req.body);
   const rating = req.body.rating;
   const id = req.params.id;
   const resp = utils.write(id, rating);

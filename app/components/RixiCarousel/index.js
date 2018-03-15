@@ -19,87 +19,136 @@ import Wrapper from './Wrapper';
 
 // import messages from './messages';
 
-//  NOTE: Needs it's own state for resuability
-// state = {
-//   page: 1,
-//   amt: 4,
-// };
-
-// incrementPage
-// decrementPage
-// goToPage
-
-const RixiCarousel = (props) => {
-  console.log('(components/RixiCarousel/)    props.data: ', props.data);   // eslint-disable-line no-console
-
-  let CardTops;
-  let CardBottoms;
-
-  //  TODO:CASE if data prop isn't supplied, display error component
-
-  //  CASE if data prop isn't empty
-  const hasData = props.data.length > 0;
-
-  if (hasData) {
-    const cards = props.data.reduce((acc, curr) => {
-      const isFilm = curr.type === 'film';
-
-      const currTop = (
-        <CardTop key={curr.uuid}>
-          <MaterialIcon class="rate-icon" type="favorite" />
-          { isFilm && <a href={curr.itemData.platforms[0] ? curr.itemData.platforms[0].url : `https://www.google.com/search?q=${curr.name}+film`} target="_blank"><MaterialIcon class="play-icon" type="play_circle_outline" /></a> }
-          <CardImg src={curr.itemData.image} />
-          <CardImgShadow />
-        </CardTop>
-      );
-
-      const currBottom = (
-        <CardBottom key={curr.uuid}>
-          <H2>{curr.name}</H2>
-          <H3>{curr.itemData.definingInfo}</H3>
-        </CardBottom>
-      );
-
-      return {
-        top: [...acc.top, currTop],
-        bottom: [...acc.bottom, currBottom],
-      };
-    }, { top: [], bottom: [] });
-
-    CardTops = cards.top;
-    CardBottoms = cards.bottom;
+// class RixiCarousel extends React.Component {
+class RixiCarousel extends React.PureComponent {
+  state = {
+    page: this.props.startPage || 1,
+    amt: this.props.amt || 4,
+    total: this.props.totalPages || 4,
   }
 
-  return (
-    <Wrapper>
+  componentWillMount() {
+    //  NOTE: First fetch
+    this.changePage(this.state.page, this.state.amt);
+  }
 
-      <CarouselCircles>
-        <CircleLink></CircleLink>
-        <CircleLink></CircleLink>
-        <CircleLink></CircleLink>
-        <CircleLink></CircleLink>
-      </CarouselCircles>
+  changePage = (action) => {
+    const { page } = this.state;
+    let newPage = page;
 
-      <CarouselCards>
-        <CarouselTop>
-          <CarouselUX>
-            <MaterialIcon class="left arrow" type="keyboard_arrow_left" />
-            <MaterialIcon class="right arrow" type="keyboard_arrow_right" />
-          </CarouselUX>
-          { CardTops }
-        </CarouselTop>
+    switch (action.type) {
+      case 'increment':
+        if (page + 1 > this.state.total) return;
+        newPage = page + 1;
+        break;
+      case 'decrement':
+        if (page === 1) return;
+        newPage = page - 1;
+        break;
+      case 'manual':
+        if (action.page === page) return;
+        newPage = action.page;
+        break;
+      default:
+        newPage = page;
+    }
 
-        <CarouselBottom>
-          { CardBottoms }
-        </CarouselBottom>
-      </CarouselCards>
+    this.props.onPageChange(newPage, this.state.amt);
+    this.setState((prevState) => ({
+      ...prevState,
+      page: newPage,
+    }));
+  }
 
-    </Wrapper>
-  );
-};
+  renderCircleNav = () => {
+    const circleNav = [];
+    for (let i = 0; i < this.state.total; i++) {  //  eslint-disable-line no-plusplus
+      circleNav.push(<CircleLink key={i} active={this.state.page === i + 1} onClick={() => this.changePage({ type: 'manual', page: i + 1 })} />);
+    }
+    return circleNav;
+  }
+
+  render() {
+    // console.log('(components/RixiCarousel/)    this.state.page: ', this.state.page);   // eslint-disable-line no-console
+    // console.log('(components/RixiCarousel/)    this.state: ', this.state);   // eslint-disable-line no-console
+    // console.log('(components/RixiCarousel/)    this.props.data: ', this.props.data);   // eslint-disable-line no-console
+
+    let CardTops;
+    let CardBottoms;
+
+    //  TODO:CASE if data prop isn't supplied, display error component
+
+    const hasData = this.props.data.length > 0;
+
+    if (hasData) {
+      const cards = this.props.data.reduce((acc, curr) => {
+        const isFilm = curr.type === 'film';
+
+        //  TODO: abstract out JSX, feed in component as a prop for reusability
+        const currTop = (
+          <CardTop key={curr.uuid}>
+            <MaterialIcon class="rate-icon" type="favorite" onClick={() => this.props.onItemChange(curr.uuid)} />
+            { isFilm &&
+              <a target="_blank" href={curr.itemData.platforms[0] ? curr.itemData.platforms[0].url : `https://www.google.com/search?q=${curr.name}+film`}>
+                <MaterialIcon class="play-icon" type="play_circle_outline" />
+              </a>
+            }
+            <CardImg src={curr.itemData.image} />
+            <CardImgShadow />
+          </CardTop>
+        );
+
+        //  TODO: abstract out JSX, feed in component as a prop for reusability
+        const currBottom = (
+          <CardBottom key={curr.uuid}>
+            <H2>{curr.name}</H2>
+            <H3>{curr.itemData.definingInfo}</H3>
+          </CardBottom>
+        );
+
+        return {
+          top: [...acc.top, currTop],
+          bottom: [...acc.bottom, currBottom],
+        };
+      }, { top: [], bottom: [] });
+
+      CardTops = cards.top;
+      CardBottoms = cards.bottom;
+    }
+
+    return (
+      <Wrapper>
+
+        <CarouselCircles>
+          { this.renderCircleNav() }
+        </CarouselCircles>
+
+        <CarouselCards>
+          <CarouselTop>
+            <CarouselUX>
+              <MaterialIcon class="left arrow" type="keyboard_arrow_left" onClick={() => this.changePage({ type: 'decrement' })} />
+              <MaterialIcon class="right arrow" type="keyboard_arrow_right" onClick={() => this.changePage({ type: 'increment' })} />
+            </CarouselUX>
+            { CardTops }
+          </CarouselTop>
+
+          <CarouselBottom>
+            { CardBottoms }
+          </CarouselBottom>
+        </CarouselCards>
+
+      </Wrapper>
+    );
+  }
+}
 
 RixiCarousel.propTypes = {
   data: PropTypes.array,
+  startPage: PropTypes.number,
+  amt: PropTypes.number,
+  totalPages: PropTypes.number,
+  onPageChange: PropTypes.func.isRequired,
+  onItemChange: PropTypes.func,
 };
 
 export default RixiCarousel;

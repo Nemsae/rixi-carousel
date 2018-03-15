@@ -1,14 +1,3 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
-
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
@@ -26,17 +15,14 @@ import SectionH1 from './SectionH1';
 import Wrapper from './Wrapper';
 
 import { makeSelectRecommendations } from './selectors';
-import { fetchRecommendations } from './actions';
+import { fetchRecommendations, rateRecommendation } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  componentWillMount() {
-    this.props.homeFetchRecommendations();
-  }
-
   render() {
+    console.log('(containers/HomePage)    this.props.recommendations: ', this.props.recommendations);
     return (
       <Wrapper>
         <H1>
@@ -45,13 +31,20 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
 
         <HomeSection>
           <SectionH1><FormattedMessage {...messages.recommendHeader} /></SectionH1>
-          <RixiCarousel data={this.props.recommendations} />
+          <RixiCarousel
+            data={this.props.recommendations}
+            totalPages={4}
+            startPage={1}
+            amt={4}
+            onPageChange={this.props.fetchRecommendationsPage}
+            onItemChange={this.props.changeRateRecommendation}
+          />
         </HomeSection>
 
-        {/* <HomeSection>
+        <HomeSection>
           <SectionH1><FormattedMessage {...messages.featuredHeader} /></SectionH1>
-          <RixiCarousel data={this.props.recommendations} />
-        </HomeSection> */}
+          {/* <RixiCarousel data={this.props.recommendations} /> */}
+        </HomeSection>
 
       </Wrapper>
     );
@@ -68,12 +61,14 @@ HomePage.propTypes = {
   //   PropTypes.bool,
   // ]),
 
-  homeFetchRecommendations: PropTypes.func,
+  fetchRecommendationsPage: PropTypes.func,
+  changeRateRecommendation: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
-    homeFetchRecommendations: () => dispatch(fetchRecommendations()),
+    fetchRecommendationsPage: (page, amt) => dispatch(fetchRecommendations(page, amt)),
+    changeRateRecommendation: (id) => dispatch(rateRecommendation(id)),
   };
 }
 
