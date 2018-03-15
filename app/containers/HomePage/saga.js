@@ -2,12 +2,20 @@
  * Sagas for:
  *  1. Get recommendations
  *  2. Rate a recommendation
+ *  3. Get featured recommendations
  *
  */
 
 import { call, take, put, select, takeLatest } from 'redux-saga/effects';   // eslint-disable-line no-unused-vars
-import { GET_RECOMMENDATIONS, RATE_RECOMMENDATION } from 'containers/HomePage/constants';
-import { fetchRecommendations, recommendationRatingError, recommendationsFetched, recommendationsFetchingError } from 'containers/HomePage/actions';
+import { GET_RECOMMENDATIONS, RATE_RECOMMENDATION, GET_FEATURES } from 'containers/HomePage/constants';
+import {
+  fetchRecommendations,
+  recommendationRatingError,
+  recommendationsFetched,
+  recommendationsFetchingError,
+  featuresFetched,
+  featuresFetchingError,
+} from 'containers/HomePage/actions';
 
 import request from 'utils/request';
 // import { makeSelectInputs } from 'containers/HomePage/selectors';
@@ -55,6 +63,23 @@ export function* loadRecommendations(action) {
 }
 
 /**
+ * GET    Fetch all featured
+ */
+export function* loadFeatures(action) {
+  const requestURL = `/features/?page=${action.page}&amt=${action.amt}`;
+  try {
+    const response = yield call(request, requestURL, {
+      method: 'GET',
+    });
+    // console.log('(container/HomePage/saga.js) response:loadFeatures: ', response);     //  eslint-disable-line no-console
+    yield put(featuresFetched(response));
+  } catch (err) {
+    // console.log('(container/HomePage/saga.js) err:loadFeatures: ', err);
+    yield put(featuresFetchingError(err));
+  }
+}
+
+/**
  * Root saga manages watcher lifecycle
  */
 export default function* sensorsData() {
@@ -63,7 +88,7 @@ export default function* sensorsData() {
   // It returns task descriptor (just like fork) so we can continue execution
   // It will be cancelled automatically on component unmount
 
-  // yield takeLatest(CREATE_SENSOR, addSensor);
-  yield takeLatest(RATE_RECOMMENDATION, rateRecommendation);
   yield takeLatest(GET_RECOMMENDATIONS, loadRecommendations);
+  yield takeLatest(GET_FEATURES, loadFeatures);
+  yield takeLatest(RATE_RECOMMENDATION, rateRecommendation);
 }

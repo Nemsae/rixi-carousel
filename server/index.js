@@ -36,8 +36,8 @@ app.get('/items', (req, res) => {
   return res.status(500).send('could not read results');
 });
 
-//  NOTE: Alternate DB
-app.get('/featured', (req, res) => {
+//  NOTE: Alternate DB for featured items
+app.get('/features', (req, res) => {
   const amt = parseInt(req.query.amt, 10) || 20;
   const page = parseInt(req.query.page, 10) || 1;
   const resp = utils.featuredRead(amt, page);

@@ -17,8 +17,6 @@ import H2 from './H2';
 import H3 from './H3';
 import Wrapper from './Wrapper';
 
-// import messages from './messages';
-
 // class RixiCarousel extends React.Component {
 class RixiCarousel extends React.PureComponent {
   state = {
@@ -75,7 +73,7 @@ class RixiCarousel extends React.PureComponent {
     let CardTops;
     let CardBottoms;
 
-    //  TODO:CASE if data prop isn't supplied, display error component
+    //  TODO: if data prop isn't supplied, or if data is empty => display error component
 
     const hasData = this.props.data.length > 0;
 
@@ -83,10 +81,12 @@ class RixiCarousel extends React.PureComponent {
       const cards = this.props.data.reduce((acc, curr) => {
         const isFilm = curr.type === 'film';
 
-        //  TODO: abstract out JSX, feed in component as a prop for reusability
+        //  TODO: for increased reusability, take out component and supply to <RixiCarousel /> as a prop instead.
         const currTop = (
           <CardTop key={curr.uuid}>
-            <MaterialIcon class="rate-icon" type="favorite" onClick={() => this.props.onItemChange(curr.uuid, this.state.page, this.state.amt)} />
+            { this.props.onItemChange &&
+              <MaterialIcon class="rate-icon" type="favorite" onClick={() => this.props.onItemChange(curr.uuid, this.state.page, this.state.amt)} />
+            }
             { isFilm &&
               <a target="_blank" href={curr.itemData.platforms[0] ? curr.itemData.platforms[0].url : `https://www.google.com/search?q=${curr.name}+film`}>
                 <MaterialIcon class="play-icon" type="play_circle_outline" />
@@ -97,7 +97,7 @@ class RixiCarousel extends React.PureComponent {
           </CardTop>
         );
 
-        //  TODO: abstract out JSX, feed in component as a prop for reusability
+        //  TODO: for increased reusability, take out component and supply to <RixiCarousel /> as a prop instead.
         const currBottom = (
           <CardBottom key={curr.uuid}>
             <H2>{curr.name}</H2>

@@ -5,6 +5,9 @@ import {
   GET_RECOMMENDATIONS,
   GET_RECOMMENDATIONS_SUCCESS,
   GET_RECOMMENDATIONS_ERROR,
+  GET_FEATURES,
+  GET_FEATURES_SUCCESS,
+  GET_FEATURES_ERROR,
 } from './constants';
 
 /**
@@ -92,6 +95,50 @@ export function recommendationsFetched(data) {
 export function recommendationsFetchingError(error) {
   return {
     type: GET_RECOMMENDATIONS_ERROR,
+    data: error,
+  };
+}
+
+/**
+ * Fetches features given page num and amount
+ *
+ * @param  {number} page The page number of the carousel
+ * @param  {number} amt The number of items per page
+ *
+ * @return {object}    An action object with a type of GET_FEATURES
+ */
+export function fetchFeatures(page, amt) {
+  return {
+    type: GET_FEATURES,
+    page,
+    amt,
+  };
+}
+
+/**
+ * Dispatched when features are succesfully retrieved
+ *
+ * @param  {array} data The features data
+ *
+ * @return {object}      An action object with a type of GET_FEATURES_SUCCESS passing the data
+ */
+export function featuresFetched(data) {
+  return {
+    type: GET_FEATURES_SUCCESS,
+    data,
+  };
+}
+
+/**
+ * Dispatched when fetching features fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of GET_FEATURES_ERROR passing the error
+ */
+export function featuresFetchingError(error) {
+  return {
+    type: GET_FEATURES_ERROR,
     data: error,
   };
 }

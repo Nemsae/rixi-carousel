@@ -16,6 +16,6 @@ export default defineMessages({
   },
   featuredHeader: {
     id: 'app.components.HomePage.featured.header',
-    defaultMessage: 'Top featured items',
+    defaultMessage: 'Top featured films for you',
   },
 });

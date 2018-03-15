@@ -4,3 +4,6 @@ export const RATE_RECOMMENDATION_ERROR = 'carousel-project/HomePage/RATE_RECOMME
 export const GET_RECOMMENDATIONS = 'carousel-project/HomePage/GET_RECOMMENDATIONS';
 export const GET_RECOMMENDATIONS_SUCCESS = 'carousel-project/HomePage/GET_RECOMMENDATIONS_SUCCESS';
 export const GET_RECOMMENDATIONS_ERROR = 'carousel-project/HomePage/GET_RECOMMENDATIONS_ERROR';
+export const GET_FEATURES = 'carousel-project/HomePage/GET_FEATURES';
+export const GET_FEATURES_SUCCESS = 'carousel-project/HomePage/GET_FEATURES_SUCCESS';
+export const GET_FEATURES_ERROR = 'carousel-project/HomePage/GET_FEATURES_ERROR';

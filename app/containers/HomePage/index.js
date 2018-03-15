@@ -16,8 +16,8 @@ import HomeSection from './HomeSection';
 import SectionH1 from './SectionH1';
 import Wrapper from './Wrapper';
 
-import { makeSelectRecommendations } from './selectors';
-import { fetchRecommendations, rateRecommendation } from './actions';
+import { makeSelectRecommendations, makeSelectFeatures } from './selectors';
+import { fetchRecommendations, rateRecommendation, fetchFeatures } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
@@ -45,10 +45,16 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
           />
         </HomeSection>
 
-        {/* <HomeSection>
+        <HomeSection>
           <SectionH1><FormattedMessage {...messages.featuredHeader} /></SectionH1>
-          <RixiCarousel data={this.props.recommendations} />
-        </HomeSection> */}
+          <RixiCarousel
+            data={this.props.features}
+            totalPages={6}
+            startPage={2}
+            amt={4}
+            onPageChange={this.props.fetchFeaturesPage}
+          />
+        </HomeSection>
 
       </Wrapper>
     );
@@ -57,25 +63,29 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
 
 HomePage.propTypes = {
   recommendations: PropTypes.array,
+  features: PropTypes.array,
+  fetchRecommendationsPage: PropTypes.func,
+  fetchFeaturesPage: PropTypes.func,
+  changeRateRecommendation: PropTypes.func,
   // loading: PropTypes.bool,
   // success: PropTypes.bool,
   // error: PropTypes.oneOfType([
   //   PropTypes.object,
   //   PropTypes.bool,
   // ]),
-  fetchRecommendationsPage: PropTypes.func,
-  changeRateRecommendation: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     fetchRecommendationsPage: (page, amt) => dispatch(fetchRecommendations(page, amt)),
+    fetchFeaturesPage: (page, amt) => dispatch(fetchFeatures(page, amt)),
     changeRateRecommendation: (id, page, amt) => dispatch(rateRecommendation(id, page, amt)),
   };
 }
 
 const mapStateToProps = createStructuredSelector({
   recommendations: makeSelectRecommendations(),
+  features: makeSelectFeatures(),
   // loading: makeSelectLoading(),
   // error: makeSelectError(),
 });

@@ -15,6 +15,15 @@ const makeSelectRecommendations = () => createSelector(
   }
 );
 
+const makeSelectFeatures = () => createSelector(
+  selectHome,
+  (homeState) => {
+    const featuresPrimitive = homeState.get('features');
+    if (featuresPrimitive instanceof Array) return featuresPrimitive;
+    return featuresPrimitive.toJS();
+  }
+);
+
 const makeSelectLoading = () => createSelector(
   selectHome,
   (homeState) => homeState.get('loading')
@@ -33,6 +42,7 @@ const makeSelectError = () => createSelector(
 export {
   selectHome,
   makeSelectRecommendations,
+  makeSelectFeatures,
   makeSelectLoading,
   makeSelectSuccess,
   makeSelectError,
