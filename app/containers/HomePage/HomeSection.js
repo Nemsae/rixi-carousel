@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const HomeSection = styled.div`
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 70px;
+  margin-top: 70px;
 `;
 
 export default HomeSection;
