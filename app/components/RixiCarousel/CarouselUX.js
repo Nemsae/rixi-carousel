@@ -8,7 +8,7 @@ const CarouselUX = styled.div`
   width: 100%;
 
   .arrow {
-    font-size: 40px;
+    font-size: 48px;
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -16,15 +16,15 @@ const CarouselUX = styled.div`
     transition: font-size 250ms;
 
     &:hover {
-      font-size: 48px;
+      font-size: 58px;
       ${'' /* transform: scale(1); */}
     }
   }
   .right {
-    right: -48px;
+    right: -60px;
   }
   .left {
-    left: -48px;
+    left: -60px;
   }
 `;
 

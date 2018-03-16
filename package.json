@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "setup": "npm run build:dll && npm run reset:db",
+    "setup": "npm install && npm run build:dll && npm run reset:db",
     "build:dll": "node ./internals/scripts/dependencies.js",
     "extract-intl": "babel-node --presets env,stage-0 -- ./internals/scripts/extract-intl.js",
     "generate": "plop --plopfile internals/generators/index.js",

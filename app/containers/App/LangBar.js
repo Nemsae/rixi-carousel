@@ -8,6 +8,7 @@ const LangBar = styled.div`
 
   span {
     font-size: 12px;
+    cursor: pointer;
 
     &:hover {
       color: #fff;

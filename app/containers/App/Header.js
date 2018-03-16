@@ -9,6 +9,8 @@ const Header = styled.div`
 
   background: #F7CA18;
   color: #000;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
   height: 100%;
   padding-left: 30px;

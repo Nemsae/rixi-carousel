@@ -26,12 +26,6 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   render() {
     return (
       <Wrapper>
-        {/* <Header>
-          <H1>
-            <FormattedMessage {...messages.header} />
-          </H1>
-        </Header> */}
-
         <HomeSection>
           <SectionH1><FormattedMessage {...messages.recommendHeader} /></SectionH1>
           <RixiCarousel
@@ -50,11 +44,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             data={this.props.features}
             totalPages={6}
             startPage={2}
-            amt={4}
+            amt={5}
             onPageChange={this.props.fetchFeaturesPage}
           />
         </HomeSection>
-
       </Wrapper>
     );
   }
