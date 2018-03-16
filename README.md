@@ -1,5 +1,9 @@
 # carousel-project
 
+## Setup and run the App:
+1. `$ npm run setup`
+2. `$ npm start`
+
 ## Requirements:
 
 Fetch items from the API And display them as a carousel. Follow the
