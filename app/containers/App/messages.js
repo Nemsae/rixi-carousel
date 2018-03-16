@@ -6,8 +6,16 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  header: {
-    id: 'app.components.App.header',
-    defaultMessage: 'THE CAROUSEL',
+  header1: {
+    id: 'app.components.App.header.1',
+    defaultMessage: 'project',
+  },
+  header2: {
+    id: 'app.components.App.header.2',
+    defaultMessage: 'CAROUSEL',
+  },
+  footer: {
+    id: 'app.components.App.footer',
+    defaultMessage: 'made with',
   },
 });

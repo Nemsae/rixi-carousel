@@ -1,0 +1,9 @@
+{
+  "app.components.App.footer": "hecho con",
+  "app.components.App.header.1": "proyecto",
+  "app.components.App.header.2": "CARRUSEL",
+  "app.components.HomePage.featured.header": "Las mejores películas para ti",
+  "app.components.HomePage.header": "Proyecto de Carrusel",
+  "app.components.HomePage.recommend.header": "Las mejores recomendaciones para ti",
+  "app.components.NotFoundPage.header": "Página no encontrada."
+}

@@ -26,6 +26,8 @@ class RixiCarousel extends React.PureComponent {
   }
 
   componentWillMount() {
+    //  if no handler passed for onPageChange, render error component.
+    if (!this.props.onPageChange) return;
     this.changePage(this.state.page, this.state.amt);
   }
 
@@ -85,11 +87,11 @@ class RixiCarousel extends React.PureComponent {
         const currTop = (
           <CardTop key={curr.uuid}>
             { this.props.onItemChange &&
-              <MaterialIcon class="rate-icon" type="favorite" onClick={() => this.props.onItemChange(curr.uuid, this.state.page, this.state.amt)} />
+              <MaterialIcon className="rate-icon" type="favorite" onClick={() => this.props.onItemChange(curr.uuid, this.state.page, this.state.amt)} />
             }
             { isFilm &&
               <a target="_blank" href={curr.itemData.platforms[0] ? curr.itemData.platforms[0].url : `https://www.google.com/search?q=${curr.name}+film`}>
-                <MaterialIcon class="play-icon" type="play_circle_outline" />
+                <MaterialIcon className="play-icon" type="play_circle_outline" />
               </a>
             }
             <CardImg src={(curr.itemData.image && curr.itemData.image.length > 0) ? curr.itemData.image : ''} />
@@ -125,8 +127,8 @@ class RixiCarousel extends React.PureComponent {
         <CarouselCards>
           <CarouselTop>
             <CarouselUX>
-              <MaterialIcon class="left arrow" type="keyboard_arrow_left" onClick={() => this.changePage({ type: 'decrement' })} />
-              <MaterialIcon class="right arrow" type="keyboard_arrow_right" onClick={() => this.changePage({ type: 'increment' })} />
+              <MaterialIcon className="left arrow" type="keyboard_arrow_left" onClick={() => this.changePage({ type: 'decrement' })} />
+              <MaterialIcon className="right arrow" type="keyboard_arrow_right" onClick={() => this.changePage({ type: 'increment' })} />
             </CarouselUX>
             { CardTops }
           </CarouselTop>
@@ -146,7 +148,7 @@ RixiCarousel.propTypes = {
   startPage: PropTypes.number,
   amt: PropTypes.number,
   totalPages: PropTypes.number,
-  onPageChange: PropTypes.func.isRequired,
+  onPageChange: PropTypes.func,
   onItemChange: PropTypes.func,
 };
 

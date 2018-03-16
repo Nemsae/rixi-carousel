@@ -1,1 +1,9 @@
-[]
+{
+  "app.components.App.footer": "made with",
+  "app.components.App.header.1": "project",
+  "app.components.App.header.2": "CAROUSEL",
+  "app.components.HomePage.featured.header": "Top featured films for you",
+  "app.components.HomePage.header": "Carousel Project",
+  "app.components.HomePage.recommend.header": "Top recommendations for you",
+  "app.components.NotFoundPage.header": "Page not found."
+}

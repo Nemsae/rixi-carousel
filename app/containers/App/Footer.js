@@ -9,6 +9,8 @@ const Footer = styled.div`
 
   background: #fff;
   color: #000;
+
+  max-height: 60px;
 `;
 
 export default Footer;

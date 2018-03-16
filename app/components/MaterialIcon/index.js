@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const MaterialIcon = (props) => {
-  const MaterialIconPrimitive = styled.i.attrs({ className: `material-icons ${props.class}` })`
+  const MaterialIconPrimitive = styled.i.attrs({ className: `material-icons ${props.className}` })`
     ${props.color && `
       color: ${props.color}
     `}
@@ -14,7 +14,7 @@ const MaterialIcon = (props) => {
 };
 
 MaterialIcon.propTypes = {
-  class: PropTypes.string,
+  className: PropTypes.string,
   type: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func,
