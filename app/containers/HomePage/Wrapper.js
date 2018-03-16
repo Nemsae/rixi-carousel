@@ -6,8 +6,13 @@ const Wrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  ${'' /* align-items: center; */}
+  ${'' /* justify-content: center; */}
+
+  overflow: auto;
+
+  padding-left: 80px;
+  padding-right: 80px;
 `;
 
 export default Wrapper;

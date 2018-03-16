@@ -26,6 +26,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   render() {
     return (
       <Wrapper>
+
+        {/* ------ First Carousel ------ */}
         <HomeSection>
           <SectionH1><FormattedMessage {...messages.recommendHeader} /></SectionH1>
           <RixiCarousel
@@ -35,9 +37,11 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             amt={4}
             onPageChange={this.props.fetchRecommendationsPage}
             onItemChange={this.props.changeRateRecommendation}
+            // component={}
           />
         </HomeSection>
 
+        {/* ------ Second Carousel ------ */}
         <HomeSection>
           <SectionH1><FormattedMessage {...messages.featuredHeader} /></SectionH1>
           <RixiCarousel

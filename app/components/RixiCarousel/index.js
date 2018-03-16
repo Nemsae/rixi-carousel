@@ -17,7 +17,6 @@ import H2 from './H2';
 import H3 from './H3';
 import Wrapper from './Wrapper';
 
-// class RixiCarousel extends React.Component {
 class RixiCarousel extends React.PureComponent {
   state = {
     page: this.props.startPage || 1,
@@ -26,7 +25,7 @@ class RixiCarousel extends React.PureComponent {
   }
 
   componentWillMount() {
-    //  if no handler passed for onPageChange, render error component.
+    //  TODO: if no handler passed for onPageChange, render error component.
     if (!this.props.onPageChange) return;
     this.changePage(this.state.page, this.state.amt);
   }
@@ -68,7 +67,6 @@ class RixiCarousel extends React.PureComponent {
   }
 
   render() {
-    // console.log('(components/RixiCarousel/)    this.state.page: ', this.state.page);   // eslint-disable-line no-console
     // console.log('(components/RixiCarousel/)    this.state: ', this.state);   // eslint-disable-line no-console
     // console.log('(components/RixiCarousel/)    this.props.data: ', this.props.data);   // eslint-disable-line no-console
 
@@ -120,10 +118,12 @@ class RixiCarousel extends React.PureComponent {
     return (
       <Wrapper>
 
+        {/* ------ Bread Crumb Nav ------ */}
         <CarouselCircles>
           { this.renderCircleNav() }
         </CarouselCircles>
 
+        {/* ------ Carousel Cards ------ */}
         <CarouselCards>
           <CarouselTop>
             <CarouselUX>
@@ -132,7 +132,6 @@ class RixiCarousel extends React.PureComponent {
             </CarouselUX>
             { CardTops }
           </CarouselTop>
-
           <CarouselBottom>
             { CardBottoms }
           </CarouselBottom>

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-const Content = styled.div`
+const Content = styled.main`
   grid-area: content;
-  overflow-x: auto;
+  overflow: auto;
+  ${'' /* overflow-x: auto; */}
 `;
 
 export default Content;

@@ -14,7 +14,8 @@ const P = styled.p`
     font-size: 26px;
   }
 
-  a,i {
+  a {
+    color: #000;
     text-decoration: none;
 
     &:visited {

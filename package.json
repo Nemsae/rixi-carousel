@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "npm install && npm run build:dll && npm run reset:db",
+    "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
     "build:dll": "node ./internals/scripts/dependencies.js",
     "extract-intl": "babel-node --presets env,stage-0 -- ./internals/scripts/extract-intl.js",
     "generate": "plop --plopfile internals/generators/index.js",
@@ -14,7 +15,8 @@
     "lint:staged": "lint-staged",
     "reset:db": "node server/utils/resetDB.js",
     "test": "cross-env NODE_ENV=test jest --coverage",
-    "start": "node server"
+    "start": "node server",
+    "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server"
   },
   "repository": {
     "type": "git",
