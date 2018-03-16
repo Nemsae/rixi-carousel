@@ -17,7 +17,7 @@ const CarouselUX = styled.div`
 
     &:hover {
       font-size: 58px;
-      ${'' /* transform: scale(1); */}
+      ${''/* transform: scale(1);*/}
     }
   }
   .right {
