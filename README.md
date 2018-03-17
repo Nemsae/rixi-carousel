@@ -4,6 +4,8 @@
 1. `$ npm run setup`
 2. `$ npm start`
 
+<sub><i>Client setup (HMR, build tools, etc.) with React Boilerplate at https://github.com/react-boilerplate/react-boilerplate</i></sub>
+
 ## Requirements:
 
 Fetch items from the API And display them as a carousel. Follow the
