@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const MaterialIcon = (props) => {
-  const MaterialIconPrimitive = styled.i.attrs({ className: `material-icons ${props.className}` })`
+  const passedAttributes = { className: 'material-icons' };
+  if (props.className) passedAttributes.className += ` ${props.className}`;
+  if (props.id) passedAttributes.id = props.id;
+
+  const MaterialIconPrimitive = styled.i.attrs(passedAttributes)`
     ${props.color && `
       color: ${props.color}
     `}
@@ -14,6 +18,7 @@ const MaterialIcon = (props) => {
 };
 
 MaterialIcon.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   type: PropTypes.string,
   color: PropTypes.string,

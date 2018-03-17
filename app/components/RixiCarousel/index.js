@@ -10,7 +10,7 @@ import CardImgShadow from './CardImgShadow';
 import CardBottom from './CardBottom';
 import CardTop from './CardTop';
 import CarouselCards from './CarouselCards';
-import CarouselCircles from './CarouselCircles';
+import CarouselBreadCrumbs from './CarouselBreadCrumbs';
 import CarouselUX from './CarouselUX';
 import CircleLink from './CircleLink';
 import H2 from './H2';
@@ -25,30 +25,31 @@ class RixiCarousel extends React.PureComponent {
   }
 
   componentWillMount() {
-    //  TODO: if no handler passed for onPageChange, render error component.
+    //  TODO: if data prop isn't supplied, or if data is empty => display error component
     if (!this.props.onPageChange) return;
-    this.changePage(this.state.page, this.state.amt);
+    this.props.onPageChange(this.state.page, this.state.amt);
   }
 
-  changePage = (action) => {
-    const { page } = this.state;
-    let newPage = page;
+  changePage = (e, pageNum) => {
+    const id = e.target ? e.target.id : 'manual';
+    const currentPage = this.state.page;
+    let newPage = currentPage;
 
-    switch (action.type) {
+    switch (id) {
       case 'increment':
-        if (page + 1 > this.state.total) return;
-        newPage = page + 1;
+        if (currentPage + 1 > this.state.total) return;
+        newPage = currentPage + 1;
         break;
       case 'decrement':
-        if (page === 1) return;
-        newPage = page - 1;
+        if (currentPage === 1) return;
+        newPage = currentPage - 1;
         break;
       case 'manual':
-        if (action.page === page) return;
-        newPage = action.page;
+        if (pageNum === currentPage) return;
+        newPage = pageNum;
         break;
       default:
-        newPage = page;
+        newPage = currentPage;
     }
 
     this.props.onPageChange(newPage, this.state.amt);
@@ -58,22 +59,20 @@ class RixiCarousel extends React.PureComponent {
     }));
   }
 
-  renderCircleNav = () => {
-    const circleNav = [];
+  renderBreadCrumbs = () => {
+    const breadCrumbs = [];
     for (let i = 0; i < this.state.total; i++) {  //  eslint-disable-line no-plusplus
-      circleNav.push(<CircleLink key={i} active={this.state.page === i + 1} onClick={() => this.changePage({ type: 'manual', page: i + 1 })} />);
+      breadCrumbs.push(<CircleLink pageNum={i + 1} key={i} active={this.state.page === i + 1} onClick={this.changePage} />);
     }
-    return circleNav;
+    return breadCrumbs;
   }
 
   render() {
-    // console.log('(components/RixiCarousel/)    this.state: ', this.state);   // eslint-disable-line no-console
+    // console.log('<RixiCarousel />     Rendered!!!');
     // console.log('(components/RixiCarousel/)    this.props.data: ', this.props.data);   // eslint-disable-line no-console
 
     let CardTops;
     let CardBottoms;
-
-    //  TODO: if data prop isn't supplied, or if data is empty => display error component
 
     const hasData = this.props.data.length > 0;
 
@@ -117,18 +116,16 @@ class RixiCarousel extends React.PureComponent {
 
     return (
       <Wrapper>
-
-        {/* ------ Bread Crumb Nav ------ */}
-        <CarouselCircles>
-          { this.renderCircleNav() }
-        </CarouselCircles>
+        <CarouselBreadCrumbs>
+          { this.renderBreadCrumbs() }
+        </CarouselBreadCrumbs>
 
         {/* ------ Carousel Cards ------ */}
         <CarouselCards>
           <CarouselTop>
             <CarouselUX>
-              <MaterialIcon className="left arrow" type="keyboard_arrow_left" onClick={() => this.changePage({ type: 'decrement' })} />
-              <MaterialIcon className="right arrow" type="keyboard_arrow_right" onClick={() => this.changePage({ type: 'increment' })} />
+              <MaterialIcon className="left arrow" type="keyboard_arrow_left" onClick={this.changePage} id="decrement" />
+              <MaterialIcon className="right arrow" type="keyboard_arrow_right" onClick={this.changePage} id="increment" />
             </CarouselUX>
             { CardTops }
           </CarouselTop>

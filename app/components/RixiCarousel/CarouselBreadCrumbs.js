@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CarouselCircles = styled.div`
+const CarouselBreadCrumbs = styled.div`
   order: 1;
   align-self: flex-end;
 
@@ -11,4 +11,4 @@ const CarouselCircles = styled.div`
   margin-bottom: 40px;
 `;
 
-export default CarouselCircles;
+export default CarouselBreadCrumbs;
