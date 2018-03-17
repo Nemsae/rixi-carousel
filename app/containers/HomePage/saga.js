@@ -24,7 +24,8 @@ import request from 'utils/request';
  * POST     change rating to an item
  */
 export function* rateRecommendation(action) {
-  const requestURL = `/items/${action.id}`;
+  const itemId = action.id;
+  const requestURL = `/items/${itemId}`;
 
   try {
     yield call(request, requestURL, {
@@ -37,6 +38,7 @@ export function* rateRecommendation(action) {
     });
     // console.log('(container/HomePage/saga.js)     rateRecommendation:response ', response);     //  eslint-disable-line no-console
 
+    // itemId
     yield put(fetchRecommendations(action.page, action.amt));
     //  Call with existing state values for page and amt
     // yield put(loadRecommendations(action));
