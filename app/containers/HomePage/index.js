@@ -28,7 +28,6 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     // console.log('<HomePage />     rendered!!!');
     return (
       <Wrapper>
-        <button onClick={this.incrementCounter}>CLICK ME</button>
         <HomeSection>
           <SectionH1><FormattedMessage {...messages.recommendHeader} /></SectionH1>
           <RixiCarousel
