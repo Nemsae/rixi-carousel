@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amelia-brown/carousel-project.git"
+    "url": "git+https://github.com/nemsae/rixi-carousel.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amelia-brown/carousel-project/issues"
+    "url": "https://github.com/nemsae/rixi-carousel/issues"
   },
-  "homepage": "https://github.com/amelia-brown/carousel-project#readme",
+  "homepage": "https://github.com/nemsae/rixi-carousel#readme",
   "lint-staged": {
     "*.js": "lint:eslint"
   },
