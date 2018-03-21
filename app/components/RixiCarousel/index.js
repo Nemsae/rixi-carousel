@@ -15,6 +15,7 @@ class RixiCarousel extends React.PureComponent {
     page: this.props.startPage || 1,
     amt: this.props.amt || 4,
     total: this.props.totalPages || 4,
+    direction: 'right',
   }
 
   componentWillMount() {
@@ -45,39 +46,44 @@ class RixiCarousel extends React.PureComponent {
         newPage = currentPage;
     }
 
+    let newDirection = 'right';
+    if (newPage > currentPage) newDirection = 'right';
+    if (newPage < currentPage) newDirection = 'left';
+
     this.props.onPageChange(newPage, this.state.amt);
     this.setState((prevState) => ({
       ...prevState,
       page: newPage,
+      direction: newDirection,
     }));
   }
 
   render() {
     // console.log('<RixiCarousel />     Rendered!!!');
-    let CardTops;
-    let CardBottoms;
+    let CardsMain;
+    let CardsSub;
 
     const hasData = this.props.data.length > 0;
 
     if (hasData) {
-      const cards = this.props.data.reduce((acc, curr) => {
+      const { main, sub } = this.props.data.reduce((acc, curr) => {
         const MainComponent = this.props.mainComponent;
         const SubComponent = this.props.subComponent;
-        const currTop = <MainComponent key={curr.uuid} item={curr} page={this.state.page} amt={this.state.amt} onItemChange={this.props.onItemChange} />;
-        const currBottom = <SubComponent key={curr.uuid} item={curr} />;
+        const currMain = <MainComponent key={curr.uuid} item={curr} direction={this.state.direction} page={this.state.page} amt={this.state.amt} onItemChange={this.props.onItemChange} />;
+        const currSub = <SubComponent key={curr.uuid} item={curr} direction={this.state.direction} />;
         return {
-          top: [...acc.top, currTop],
-          bottom: [...acc.bottom, currBottom],
+          main: [...acc.main, currMain],
+          sub: [...acc.sub, currSub],
         };
-      }, { top: [], bottom: [] });
+      }, { main: [], sub: [] });
 
-      CardTops = cards.top;
-      CardBottoms = cards.bottom;
+      CardsMain = main;
+      CardsSub = sub;
     }
     // } else {
     //   //    ... render Error Component
-    //   CardTops = cards.top;
-    //   CardBottoms = cards.bottom;
+    //   CardsMain = cards.top;
+    //   CardsSub = cards.bottom;
     // }
 
     return (
@@ -91,10 +97,10 @@ class RixiCarousel extends React.PureComponent {
               <MaterialIcon className="left arrow" type="keyboard_arrow_left" onClick={this.changePage} id="decrement" />
               <MaterialIcon className="right arrow" type="keyboard_arrow_right" onClick={this.changePage} id="increment" />
             </CarouselUX>
-            { CardTops }
+            { CardsMain }
           </CarouselTop>
           <CarouselBottom>
-            { CardBottoms }
+            { CardsSub }
           </CarouselBottom>
         </CarouselCards>
       </Wrapper>

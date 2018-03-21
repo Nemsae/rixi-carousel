@@ -10,7 +10,7 @@ const CardTop = (props) => {
   const { item } = props;
   const isFilm = item.type === 'film';
   return (
-    <Wrapper>
+    <Wrapper direction={props.direction}>
       { props.onItemChange &&
         <MaterialIcon className="rate-icon" type="favorite" onClick={() => props.onItemChange(item.uuid, props.page, props.amt)} />
       }
@@ -28,6 +28,7 @@ const CardTop = (props) => {
 CardTop.propTypes = {
   page: PropTypes.number,
   amt: PropTypes.number,
+  direction: PropTypes.string,
   item: PropTypes.any,
   onItemChange: PropTypes.func,
 };

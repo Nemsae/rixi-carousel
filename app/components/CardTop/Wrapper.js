@@ -1,9 +1,23 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Wrapper = styled.div.attrs({ className: 'carousel__card-top' })`
+import { fadeIn } from 'utils/KeyFrames';
+
+const Wrapper = (props) => {
+  const WrapperPrimitive = styled.div.attrs({ className: 'carousel__card-top' })`
   position: relative;
   margin-left: 15px;
   margin-right: 15px;
+
+  animation: ${fadeIn(props.direction)} 300ms ease-out;
+  ${'' /* https://www.w3schools.com/css/css3_animations.asp
+  animation: ${fadeInRight};
+  animation-duration: 250ms;
+  animation-iteration-count: 0;
+  animation-direction: normal;
+  animation-timing-function: ease-out;
+  animation-direction: forwards; */}
 
   a {
     color: #fff;
@@ -53,6 +67,14 @@ const Wrapper = styled.div.attrs({ className: 'carousel__card-top' })`
       box-shadow: none;
     }
   }
-`;
+  `;
+
+  return <WrapperPrimitive>{ props.children }</WrapperPrimitive>;
+};
+
+Wrapper.propTypes = {
+  direction: PropTypes.string,
+  children: PropTypes.any,
+};
 
 export default Wrapper;

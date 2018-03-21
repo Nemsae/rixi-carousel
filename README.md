@@ -45,6 +45,8 @@
 3. Build a (default) error component, supply as prop to `<RixiCarousel />`
 4. Cards with no image supplied, should display a default image
 5. replace google search with youtube search
+5. CSS Animations/Transitions
+6. Wrap
 
 ## Project Milestones:
 1. 100% Test Coverage

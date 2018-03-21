@@ -8,7 +8,7 @@ import Wrapper from './Wrapper';
 const CardBottom = (props) => {
   const { item } = props;
   return (
-    <Wrapper>
+    <Wrapper direction={props.direction}>
       <H2>{item.name}</H2>
       <H3>{item.itemData.definingInfo}</H3>
     </Wrapper>
@@ -16,6 +16,7 @@ const CardBottom = (props) => {
 };
 
 CardBottom.propTypes = {
+  direction: PropTypes.string,
   item: PropTypes.any,
 };
 

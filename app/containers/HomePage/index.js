@@ -45,7 +45,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         </HomeSection>
 
         {/* ------ Second Carousel ------ */}
-        <HomeSection>
+        {/* <HomeSection>
           <SectionH1><FormattedMessage {...messages.featuredHeader} /></SectionH1>
           <RixiCarousel
             data={this.props.features}
@@ -57,7 +57,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             subComponent={CardBottom}
             // errorComponent={CardError}
           />
-        </HomeSection>
+        </HomeSection> */}
       </Wrapper>
     );
   }
