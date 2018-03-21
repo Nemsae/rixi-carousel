@@ -17,6 +17,8 @@
     amt={4}   //  amt => an integer setting the number of cards per page
     onPageChange={this.props.fetchRecommendationsPage}   //  onPageChange => a func that loads the next data set
     onItemChange={this.props.changeRateRecommendation}   //  onItemChange => a func that interacts with each card (ex. rating a card)
+    mainComponent={CardTop}
+    subComponent={CardBottom}
   />
 </HomeSection>
 ```
@@ -38,9 +40,10 @@
 2. Why use PureComponent vs Stateless Function vs Component?
 
 ## Project Intermediate Milestones:
-1. RATE_RECOMMENDATION, remove and fetch a new item IN PLACE for data []
-2. Abstract out Card Components (CardTop and CardBottom) to <HomePage />, feed as a prop to RixiCarousel.
-3. Cards with no image supplied, should display a default image
+~~1. RATE_RECOMMENDATION, remove and fetch a new item IN PLACE for data []~~
+~~2. Abstract out Card Components (CardTop and CardBottom) to <HomePage />, feed as a prop to RixiCarousel.~~
+3. Build a (default) error component, supply as prop to <RixiCarousel />
+4. Cards with no image supplied, should display a default image
 
 ## Project Milestones:
 1. 100% Test Coverage

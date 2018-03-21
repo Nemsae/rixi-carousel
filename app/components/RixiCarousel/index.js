@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { FormattedMessage } from 'react-intl';
 
 import MaterialIcon from 'components/MaterialIcon';
 import BreadCrumbs from 'components/BreadCrumbs';
 import CarouselBottom from './CarouselBottom';
 import CarouselTop from './CarouselTop';
-import CardBottom from './CardBottom';
 import CarouselCards from './CarouselCards';
 import CarouselBreadCrumbs from './CarouselBreadCrumbs';
 import CarouselUX from './CarouselUX';
-import H2 from './H2';
-import H3 from './H3';
 import Wrapper from './Wrapper';
 
 class RixiCarousel extends React.PureComponent {
@@ -59,7 +55,6 @@ class RixiCarousel extends React.PureComponent {
   render() {
     // console.log('<RixiCarousel />     Rendered!!!');
     // console.log('(components/RixiCarousel/)    this.props.data: ', this.props.data);   // eslint-disable-line no-console
-
     let CardTops;
     let CardBottoms;
 
@@ -80,6 +75,9 @@ class RixiCarousel extends React.PureComponent {
       CardTops = cards.top;
       CardBottoms = cards.bottom;
     }
+  // } else {
+  //   //    ... render Error Component
+  // }
 
     return (
       <Wrapper>
@@ -112,6 +110,7 @@ RixiCarousel.propTypes = {
   onItemChange: PropTypes.func,
   mainComponent: PropTypes.any,
   subComponent: PropTypes.any,
+  // errorComponent: PropTypes.any,
 };
 
 export default RixiCarousel;

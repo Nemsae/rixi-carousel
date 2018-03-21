@@ -8,12 +8,10 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 
-// import H1 from 'components/H1';
 import RixiCarousel from 'components/RixiCarousel';
 import CardBottom from 'components/CardBottom';
 import CardTop from 'components/CardTop';
 
-// import Header from './Header';
 import HomeSection from './HomeSection';
 import SectionH1 from './SectionH1';
 import Wrapper from './Wrapper';
@@ -42,11 +40,12 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             onItemChange={this.props.changeRateRecommendation}
             mainComponent={CardTop}
             subComponent={CardBottom}
+            // errorComponent={CardError}
           />
         </HomeSection>
 
         {/* ------ Second Carousel ------ */}
-        {/* <HomeSection>
+        <HomeSection>
           <SectionH1><FormattedMessage {...messages.featuredHeader} /></SectionH1>
           <RixiCarousel
             data={this.props.features}
@@ -57,7 +56,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             mainComponent={CardTop}
             subComponent={CardBottom}
           />
-        </HomeSection> */}
+        </HomeSection>
       </Wrapper>
     );
   }
