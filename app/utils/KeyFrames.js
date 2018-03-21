@@ -4,6 +4,7 @@ const directionTransform = (direction) => {
   switch (direction) {
     case 'right':
       return 'transform: translate3d(100%, 0, 0);';
+    // case 'rightOut':
     case 'left':
       return 'transform: translate3d(-100%, 0, 0);';
     case 'up':
@@ -29,28 +30,21 @@ export const fadeIn = (direction) => {
   return fade;
 };
 
-export const fadeInRight = keyframes`
-  from {
-    transform: translate3d(100%, 0, 0);
-  }
+export const fadeOut = () => {
+  const fade = keyframes`
+    from {
+    }
 
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-`;
+    to {
+      transform: translate3d(-100%, 0, 0);
+    }
+  `;
 
-export const fadeInLeft = keyframes`
-  from {
-    transform: translate3d(-100%, 0, 0);
-  }
+  return fade;
+};
 
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-`;
 
 export default {
   fadeIn,
-  fadeInRight,
-  fadeInLeft,
+  fadeOut,
 };

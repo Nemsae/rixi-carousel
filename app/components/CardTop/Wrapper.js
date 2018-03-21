@@ -11,6 +11,8 @@ const Wrapper = (props) => {
   margin-right: 15px;
 
   animation: ${fadeIn(props.direction)} 300ms ease-out;
+  ${''/* animation: ${fadeIn(props.direction)} 300ms ease-out, ${fadeOut(props.direction)} 300ms ease-in; */}
+
   ${'' /* https://www.w3schools.com/css/css3_animations.asp
   animation: ${fadeInRight};
   animation-duration: 250ms;
