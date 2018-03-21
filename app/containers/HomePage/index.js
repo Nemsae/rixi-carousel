@@ -10,7 +10,8 @@ import injectSaga from 'utils/injectSaga';
 
 // import H1 from 'components/H1';
 import RixiCarousel from 'components/RixiCarousel';
-// import { fromJS } from 'immutable';
+import CardBottom from 'components/CardBottom';
+import CardTop from 'components/CardTop';
 
 // import Header from './Header';
 import HomeSection from './HomeSection';
@@ -39,7 +40,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             amt={4}
             onPageChange={this.props.fetchRecommendationsPage}
             onItemChange={this.props.changeRateRecommendation}
-            // component={}
+            mainComponent={CardTop}
+            subComponent={CardBottom}
           />
         </HomeSection>
 
@@ -52,6 +54,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             startPage={2}
             amt={5}
             onPageChange={this.props.fetchFeaturesPage}
+            mainComponent={CardTop}
+            subComponent={CardBottom}
           />
         </HomeSection> */}
       </Wrapper>

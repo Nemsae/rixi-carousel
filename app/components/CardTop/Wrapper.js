@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CardTop = styled.div.attrs({ className: 'carousel__card-top' })`
+const Wrapper = styled.div.attrs({ className: 'carousel__card-top' })`
   position: relative;
   margin-left: 15px;
   margin-right: 15px;
@@ -55,4 +55,4 @@ const CardTop = styled.div.attrs({ className: 'carousel__card-top' })`
   }
 `;
 
-export default CardTop;
+export default Wrapper;
