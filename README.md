@@ -1,4 +1,4 @@
-# carousel-project
+# Rixi - Project Carousel
 
 ## App setup:
 1. `$ npm run setup`
