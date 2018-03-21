@@ -8,9 +8,7 @@ const MaterialIcon = (props) => {
   if (props.id) passedAttributes.id = props.id;
 
   const MaterialIconPrimitive = styled.i.attrs(passedAttributes)`
-    ${props.color && `
-      color: ${props.color}
-    `}
+    ${props.color && `color: ${props.color};`}
   `;
 
   if (props.onClick) return <MaterialIconPrimitive onClick={props.onClick}>{ props.type }</MaterialIconPrimitive>;

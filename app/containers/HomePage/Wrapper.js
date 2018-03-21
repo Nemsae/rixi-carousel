@@ -11,6 +11,8 @@ const Wrapper = styled.div`
 
   overflow: auto;
 
+  height: 100%;
+
   ${'' /* overflow: auto;
 
   padding-left: 80px;

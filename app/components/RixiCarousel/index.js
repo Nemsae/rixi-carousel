@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 // import { FormattedMessage } from 'react-intl';
 
 import MaterialIcon from 'components/MaterialIcon';
+import BreadCrumbs from 'components/BreadCrumbs';
 import CarouselBottom from './CarouselBottom';
 import CarouselTop from './CarouselTop';
 import CardImg from './CardImg';
@@ -12,7 +13,6 @@ import CardTop from './CardTop';
 import CarouselCards from './CarouselCards';
 import CarouselBreadCrumbs from './CarouselBreadCrumbs';
 import CarouselUX from './CarouselUX';
-import CircleLink from './CircleLink';
 import H2 from './H2';
 import H3 from './H3';
 import Wrapper from './Wrapper';
@@ -57,14 +57,6 @@ class RixiCarousel extends React.PureComponent {
       ...prevState,
       page: newPage,
     }));
-  }
-
-  renderBreadCrumbs = () => {
-    const breadCrumbs = [];
-    for (let i = 0; i < this.state.total; i++) {  //  eslint-disable-line no-plusplus
-      breadCrumbs.push(<CircleLink pageNum={i + 1} key={i} active={this.state.page === i + 1} onClick={this.changePage} />);
-    }
-    return breadCrumbs;
   }
 
   render() {
@@ -117,10 +109,8 @@ class RixiCarousel extends React.PureComponent {
     return (
       <Wrapper>
         <CarouselBreadCrumbs>
-          { this.renderBreadCrumbs() }
+          <BreadCrumbs total={this.state.total} page={this.state.page} changePage={this.changePage} />
         </CarouselBreadCrumbs>
-
-        {/* ------ Carousel Cards ------ */}
         <CarouselCards>
           <CarouselTop>
             <CarouselUX>
@@ -133,7 +123,6 @@ class RixiCarousel extends React.PureComponent {
             { CardBottoms }
           </CarouselBottom>
         </CarouselCards>
-
       </Wrapper>
     );
   }

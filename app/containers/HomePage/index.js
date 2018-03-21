@@ -44,7 +44,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         </HomeSection>
 
         {/* ------ Second Carousel ------ */}
-        <HomeSection>
+        {/* <HomeSection>
           <SectionH1><FormattedMessage {...messages.featuredHeader} /></SectionH1>
           <RixiCarousel
             data={this.props.features}
@@ -53,7 +53,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             amt={5}
             onPageChange={this.props.fetchFeaturesPage}
           />
-        </HomeSection>
+        </HomeSection> */}
       </Wrapper>
     );
   }
