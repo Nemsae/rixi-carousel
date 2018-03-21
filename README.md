@@ -44,6 +44,7 @@
 ~~2. Abstract out Card Components (CardTop and CardBottom) to <HomePage />, feed as a prop to RixiCarousel.~~
 3. Build a (default) error component, supply as prop to `<RixiCarousel />`
 4. Cards with no image supplied, should display a default image
+5. replace google search with youtube search
 
 ## Project Milestones:
 1. 100% Test Coverage

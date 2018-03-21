@@ -54,7 +54,6 @@ class RixiCarousel extends React.PureComponent {
 
   render() {
     // console.log('<RixiCarousel />     Rendered!!!');
-    // console.log('(components/RixiCarousel/)    this.props.data: ', this.props.data);   // eslint-disable-line no-console
     let CardTops;
     let CardBottoms;
 
@@ -75,9 +74,11 @@ class RixiCarousel extends React.PureComponent {
       CardTops = cards.top;
       CardBottoms = cards.bottom;
     }
-  // } else {
-  //   //    ... render Error Component
-  // }
+    // } else {
+    //   //    ... render Error Component
+    //   CardTops = cards.top;
+    //   CardBottoms = cards.bottom;
+    // }
 
     return (
       <Wrapper>

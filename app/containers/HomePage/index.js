@@ -55,6 +55,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             onPageChange={this.props.fetchFeaturesPage}
             mainComponent={CardTop}
             subComponent={CardBottom}
+            // errorComponent={CardError}
           />
         </HomeSection>
       </Wrapper>
