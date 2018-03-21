@@ -1,5 +1,5 @@
 {
-  "name": "carousel-project",
+  "name": "rixi-carousel",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amelia-brown/carousel-project.git"
+    "url": "git+https://github.com/Nemsae/rixi-carousel.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amelia-brown/carousel-project/issues"
+    "url": "https://github.com/Nemsae/rixi-carousel/issues"
   },
-  "homepage": "https://github.com/amelia-brown/carousel-project#readme",
+  "homepage": "https://github.com/Nemsae/rixi-carousel#readme",
   "lint-staged": {
     "*.js": "lint:eslint"
   },
