@@ -11,7 +11,7 @@ const CardBottom = (props) => {
     margin-left: 15px;
     margin-right: 15px;
 
-    animation: ${fadeIn(props.direction)} 300ms ease-out;
+    ${'' /* animation: ${fadeIn(props.direction)} 300ms ease-out; */}
   `;
 
   return <CardBottomPrimitive>{ props.children }</CardBottomPrimitive>;

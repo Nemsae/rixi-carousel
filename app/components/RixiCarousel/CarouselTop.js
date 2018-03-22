@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
 const CarouselTop = styled.div`
+  max-width: 1016px;
+
+  overflow-x: hidden;
+
+  ${'' /* height: 330px;
+  overflow-y: visible;
   display: flex;
-  justify-content: space-between;
+  align-items: center; */}
 
-  position: relative;
-
-  margin-bottom: 24px;
-
-  ${'' /* div.carousel__card-top + div.carousel__card-top {
-    margin-left: 30px;
-  } */}
+  margin-bottom: -15px;
+  margin-top: -15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 `;
 
 export default CarouselTop;

@@ -6,11 +6,6 @@ const CarouselCards = styled.div`
   flex-direction: column;
 
   width: 100%;
-  ${'' /* order: 2;
-  display: flex;
-  justify-content: space-between;
-
-  width: 100%; */}
 `;
 
 export default CarouselCards;
