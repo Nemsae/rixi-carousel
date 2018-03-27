@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
+import CarouselPage from 'containers/CarouselPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
@@ -51,6 +52,7 @@ export function App(props) {
       <Content>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/carousel" component={CarouselPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Content>

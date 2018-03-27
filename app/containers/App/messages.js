@@ -1,7 +1,7 @@
 /*
- * HomePage Messages
+ * CarouselPage Messages
  *
- * This contains all the text for the HomePage component.
+ * This contains all the text for the CarouselPage component.
  */
 import { defineMessages } from 'react-intl';
 

@@ -29,21 +29,27 @@ const StyledTransitionGroup = styled(TransitionGroup)`
 
   .main-transition-enter {
     opacity: 0.01;
-    transform: translate3d(500%, 0, 0);
+    ${'' /* transform: translate3d(500%, 0, 0); */}
+    transform: translateX(2000px);
   }
 
   .main-transition-enter.main-transition-enter-active {
     opacity: 1;
+    ${'' /* transform: translate3d(0, 0, 0); */}
+    transform: translateX(0px);
     transition: all 500ms ease-in;
   }
 
   .main-transition-leave {
     opacity: 1;
+    ${'' /* transform: translate3d(-450%, 0, 0); */}
+    transform: translateX(0px);
   }
 
   .main-transition-leave.main-transition-leave-active {
     opacity: 0.01;
-    transform: translate3d(-500%, 0, 0);
+    ${'' /* transform: translate3d(-500%, 0, 0); */}
+    transform: translateX(-2000px);
     transition: all 300ms ease-in;
   }
 

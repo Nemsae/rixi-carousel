@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/nemsae/rixi-carousel/issues"
   },
-  "homepage": "https://github.com/nemsae/rixi-carousel#readme",
+  "CarouselPage": "https://github.com/nemsae/rixi-carousel#readme",
   "lint-staged": {
     "*.js": "lint:eslint"
   },

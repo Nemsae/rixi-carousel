@@ -2,8 +2,8 @@
   "app.components.App.footer": "프로젝트",
   "app.components.App.header.1": "프로젝트",
   "app.components.App.header.2": "회전목마",
-  "app.components.HomePage.featured.header": "나에게 가장 인기있는 영화",
-  "app.components.HomePage.header": "회전목마 프로젝트",
-  "app.components.HomePage.recommend.header": "나에게 가장 적합한 추천",
+  "app.components.CarouselPage.featured.header": "나에게 가장 인기있는 영화",
+  "app.components.CarouselPage.header": "회전목마 프로젝트",
+  "app.components.CarouselPage.recommend.header": "나에게 가장 적합한 추천",
   "app.components.NotFoundPage.header": "페이지를 찾을 수 없습니다."
 }
