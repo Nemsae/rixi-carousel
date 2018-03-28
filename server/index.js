@@ -2,6 +2,7 @@
 
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const bodyParser = require('body-parser');
 
 const utils = require('./utils');
@@ -45,6 +46,10 @@ app.get('/features', (req, res) => {
   return res.status(500).send('could not read results');
 });
 
+//  Integrate static/public folder
+// app.use(express.static('public'));
+// app.use('/public', express.static('public'));
+app.use(express.static(resolve(process.cwd(), 'public')));
 setup(app, {
   outputPath: resolve(process.cwd(), 'build'),
   publicPath: '/',

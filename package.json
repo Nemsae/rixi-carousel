@@ -16,6 +16,7 @@
     "reset:db": "node server/utils/resetDB.js",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "start": "node server",
+    "start:dev": "nodemon server",
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server"
   },
   "repository": {

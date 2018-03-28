@@ -33,10 +33,14 @@ import HeaderRight from './HeaderRight';
 import messages from './messages';
 
 export function App(props) {
-  console.log('App    props.location: ', props.location);
+  //  NOTE: if on home page, render landing style menu. Through className, or render separate component.
+  //  If I render separate component, will this affect the css transitions? I will have to depend on react-transition-group for the render
+  //  Also having the component will unmount, and the other will have to mount. No way to link the two for a smooth `transition`
+  console.log('App    props.location.pathname: ', props.location.pathname);
   return (
     <AppWrapper>
-      <Header>
+
+      <Header currentPath={props.location.pathname}>
         <HeaderLeft>
           <HeaderBar />
           <H1><b><FormattedMessage {...messages.header1} /></b><br /><FormattedMessage {...messages.header2} /></H1>
@@ -69,6 +73,7 @@ export function App(props) {
           <a href="https://github.com/Nemsae"><MaterialIcon color="red" type="favorite" /></a>
         </P>
       </Footer>
+
     </AppWrapper>
   );
 }
