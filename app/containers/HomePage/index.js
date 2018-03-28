@@ -38,7 +38,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     return (
       <Wrapper>
         {/* eslint-disable jsx-a11y/media-has-caption */}
-        <BackgroundVideo className={this.state.videoPlay ? 'fade-in' : ''} autoPlay mute onLoadedData={this.triggerVideoPlay}>
+        {/* <BackgroundVideo className={this.state.videoPlay ? 'fade-in' : ''} autoPlay mute onLoadedData={this.triggerVideoPlay}> */}
+        <BackgroundVideo autoPlay loop mute onLoadedData={this.triggerVideoPlay}>
           <source src="images/rixi_20180110_012904.mp4" type="video/mp4" />
           Your browser does not support the mp4 video format.
         </BackgroundVideo>
