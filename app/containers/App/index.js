@@ -11,6 +11,7 @@ import CarouselPage from 'containers/CarouselPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
+import { makeSelectLocation } from 'containers/App/selectors';
 import { changeLocale } from 'containers/LanguageProvider/actions';
 import { makeSelectLocale } from 'containers/LanguageProvider/selectors';
 
@@ -32,6 +33,7 @@ import HeaderRight from './HeaderRight';
 import messages from './messages';
 
 export function App(props) {
+  console.log('App    props.location: ', props.location);
   return (
     <AppWrapper>
       <Header>
@@ -73,6 +75,7 @@ export function App(props) {
 
 App.propTypes = {
   locale: PropTypes.string,
+  location: PropTypes.object,
   changeLocaleLang: PropTypes.func,
 };
 
@@ -84,6 +87,7 @@ export function mapDispatchToProps(dispatch) {
 
 const mapStateToProps = createStructuredSelector({
   locale: makeSelectLocale(),
+  location: makeSelectLocation(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
