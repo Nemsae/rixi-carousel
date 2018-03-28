@@ -43,8 +43,23 @@ export const fadeOut = () => {
   return fade;
 };
 
+export const opaqueIn = () => {
+  const opaque = keyframes`
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  `;
+
+  return opaque;
+};
+
 
 export default {
+  opaqueIn,
   fadeIn,
   fadeOut,
 };

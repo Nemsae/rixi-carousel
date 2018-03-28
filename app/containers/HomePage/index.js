@@ -19,16 +19,26 @@ import saga from './saga';
 import messages from './messages';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  componentDidMount() {
-    
+  state = {
+    videoPlay: false,
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    // console.log('nextProps: ', nextProps);
+    // console.log('nextState: ', nextState);
+  }
+
+  triggerVideoPlay = () => {
+    console.log('this.state.videoPlay: ', this.state.videoPlay);
+    this.setState({ videoPlay: true });
   }
 
   render() {
-    // console.log('<HomePage />     rendered!!!');
+    console.log('<HomePage />     rendered!!!');
     return (
       <Wrapper>
         {/* eslint-disable jsx-a11y/media-has-caption */}
-        <BackgroundVideo autoPlay mute>
+        <BackgroundVideo className={this.state.videoPlay ? 'fade-in' : ''} autoPlay mute onLoadedData={this.triggerVideoPlay}>
           <source src="images/rixi_20180110_012904.mp4" type="video/mp4" />
           Your browser does not support the mp4 video format.
         </BackgroundVideo>
