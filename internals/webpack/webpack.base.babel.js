@@ -69,7 +69,6 @@ module.exports = (options) => ({
       {
         test: /\.html$/,
         use: 'html-loader',
-        // use: 'html-loader?attrs[]=video:src',
       },
       {
         test: /\.json$/,
@@ -78,7 +77,6 @@ module.exports = (options) => ({
       {
         test: /\.(mp4|webm)$/,
         use: {
-          // loader: 'url?limit=10000&mimetype=video/mp4',
           loader: 'url-loader',
           options: {
             limit: 10000,
