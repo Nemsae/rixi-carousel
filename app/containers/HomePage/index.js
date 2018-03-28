@@ -8,6 +8,7 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 
+import BackgroundVideo from './BackgroundVideo';
 import H2 from 'components/H2';
 import Wrapper from './Wrapper';
 
@@ -17,31 +18,20 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
-import backgroundVideo from 'images/20180110_012904.mp4';
-console.log('backgroundVideo: ', backgroundVideo);
-// import backgroundVideo2 from '../../20180110_012904.mp4';
-// console.log('backgroundVideo2: ', backgroundVideo2);
-
-import styled from 'styled-components';
-
-const Video = styled.video`
-  height: 50vh;
-  max-width: 100%;
-
-  background: pink;
-`;
-
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  componentDidMount() {
+    
+  }
+
   render() {
     // console.log('<HomePage />     rendered!!!');
     return (
       <Wrapper>
         {/* eslint-disable jsx-a11y/media-has-caption */}
-        <Video controls>
-          <source src="images/rixi_20180110_012904.mp4" type="video/mp4">
-          </source>
+        <BackgroundVideo autoPlay mute>
+          <source src="images/rixi_20180110_012904.mp4" type="video/mp4" />
           Your browser does not support the mp4 video format.
-        </Video>
+        </BackgroundVideo>
         {/* eslint-ensable jsx-a11y/media-has-caption */}
       </Wrapper>
     );

@@ -47,8 +47,6 @@ app.get('/features', (req, res) => {
 });
 
 //  Integrate static/public folder
-// app.use(express.static('public'));
-// app.use('/public', express.static('public'));
 app.use(express.static(resolve(process.cwd(), 'public')));
 setup(app, {
   outputPath: resolve(process.cwd(), 'build'),
