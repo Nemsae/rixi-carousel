@@ -36,7 +36,7 @@ export function App(props) {
   //  NOTE: if on home page, render landing style menu. Through className, or render separate component.
   //  If I render separate component, will this affect the css transitions? I will have to depend on react-transition-group for the render
   //  Also having the component will unmount, and the other will have to mount. No way to link the two for a smooth `transition`
-  console.log('App    props.location.pathname: ', props.location.pathname);
+  console.log('App    props.location.pathname: ', props.location.pathname);     //  eslint-disable-line no-console
   return (
     <AppWrapper>
 

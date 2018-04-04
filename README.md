@@ -7,7 +7,7 @@
 <sub><i>Client setup (HMR, build tools, etc.) with React Boilerplate at https://github.com/react-boilerplate/react-boilerplate</i></sub>
 
 ## Code Example:
-```
+```javascript
 <HomeSection>
   <SectionH1><FormattedMessage {...messages.recommendHeader} /></SectionH1>
   <RixiCarousel
@@ -17,8 +17,8 @@
     amt={4}   //  amt => an integer setting the number of cards per page
     onPageChange={this.props.fetchRecommendationsPage}   //  onPageChange => a func that loads the next data set
     onItemChange={this.props.changeRateRecommendation}   //  onItemChange => a func that interacts with each card (ex. rating a card)
-    mainComponent={CardTop}
-    subComponent={CardBottom}
+    mainComponent={CardTop}   //  mainComponent => pass in react component for main content
+    subComponent={CardBottom}   //  subComponent => pass in react component for sub/secondary content
   />
 </HomeSection>
 ```
