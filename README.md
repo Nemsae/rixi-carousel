@@ -42,13 +42,14 @@
 ## Project Intermediate Milestones:
 ~~1. RATE_RECOMMENDATION, remove and fetch a new item IN PLACE for data []~~
 ~~2. Abstract out Card Components (CardTop and CardBottom) to <CarouselPage />, feed as a prop to RixiCarousel.~~
-3. Build a (default) error component, supply as prop to `<RixiCarousel />`
-4. Cards with no image supplied, should display a default image
-5. replace google search with youtube search
-5. CSS Animations/Transitions
-6. Wrap
+1. Build a (default) error component, supply as prop to `<RixiCarousel />`
+1. Cards with no image supplied, should display a default image
+1. replace google search with youtube search
+1. CSS Animations/Transitions
+1. Wrap
 
 ## Project Milestones:
+1. Deploy live sandbox environment
 1. 100% Test Coverage
 2. Build script to scrape `//  TODO:` comments and build list into README.md  `(app/container/CarouselPage) => "Build case to render error component" `
 

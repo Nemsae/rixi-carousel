@@ -19,6 +19,13 @@ import saga from './saga';
 import messages from './messages';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  componentWillMount() {
+    console.log('<HomePage />     CWM');     //  eslint-disable-line no-console
+  }
+  componentWillUnmount() {
+    console.log('<HomePage />     CWU');     //  eslint-disable-line no-console
+  }
+
   render() {
     // console.log('<HomePage />     rendered!!!');
     return (
